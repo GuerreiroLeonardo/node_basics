@@ -32,7 +32,7 @@ const users = [];
 const server = http.createServer(async (req, res) => {
   const { method, url } = req;
   const buffers = [];
-
+  // Json format needs to be read fully before parsing, becasue we cannot work partially with json, we need the full content.
   for await (const chunk of req) {
     buffers.push(chunk);
   }
